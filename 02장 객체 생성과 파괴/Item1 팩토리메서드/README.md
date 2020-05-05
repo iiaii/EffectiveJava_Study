@@ -40,7 +40,7 @@ public static Boolean valueOf(boolean b) {
 
 4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다
 
-반환 타입의 하위 타입이기만 하면 어떤 클래스의 객체를 반환하든 상관 없다. 가령 EnumSet 클래스는 public 생성자 없이 오직 정적 팩토리만 제공하는데, OpenJDK에서는 원소의 수에 따라 두가지 하위 클래스 중 하나의 인스턴스를 반환한다. ㅇ원소가 64개 이하면 원소들을 long변수 하나로 관리하는 RegularEnumSet의 인스턴스를, 65개 이상이면 long배열로 관리하는 JumboEnumSet의 인스턴스를 반환.
+반환 타입의 하위 타입이기만 하면 어떤 클래스의 객체를 반환하든 상관 없다. 가령 EnumSet 클래스는 public 생성자 없이 오직 정적 팩토리만 제공하는데, OpenJDK에서는 원소의 수에 따라 두가지 하위 클래스 중 하나의 인스턴스를 반환한다. 원소가 64개 이하면 원소들을 long변수 하나로 관리하는 RegularEnumSet의 인스턴스를, 65개 이상이면 long배열로 관리하는 JumboEnumSet의 인스턴스를 반환.
 
 클라이언트는 이 두 클래스의 존재를 모르기 때문에 원소가 적을때 RegularEnumSet을 사용할 이점이 없어진다면 다음 릴리스 때는 이를 삭제해도 아무 문제가 없다. (반대로 추가하는 것도 쉬움)
 
@@ -82,5 +82,12 @@ public static Boolean valueOf(boolean b) {
 - type : getType과 newType의 간결한 버전
 	List<Complaint> litany = Collections.list(legacyLitany);
 
-> ::핵심정리::
+
+::핵심정리::
+
 > 정적 팩토리 메서드와 public 생성자는 각자 쓰임새가 있으니 상대적인 장단점을 이해하고 사용하는 것이 좋다. 그렇다고 하더라도 정적 팩토리를 사용하는게 유리한 경우가 더 많으므로 무작정 public 생성자를 제공하던 습관이 있다면 고치자
+
+
+
+
+

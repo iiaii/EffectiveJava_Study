@@ -57,7 +57,9 @@ public class Room implements AutoCloseable {
 
 System.exit을 호출할 때의 cleaner동작은 구현하기 나름이다. 청소가 이뤄질지는 보장하지 않는다.
 
-> ::핵심 정리::
+
+::핵심 정리::
+
 > cleaner는 안전망 역할이나 중요하지 않은 네이티브 자우너 회수용으로만 사용하자. 물론 이런 경우라도 불확실성과 성능 저하에 주의해야 한다.
 
 

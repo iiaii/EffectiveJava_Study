@@ -35,7 +35,9 @@ static String copy(String src, String dest) throws IOException {
 
 catch 나 finally도 계속 사용할 수 있다.
 
-> ::핵심 정리::
+
+::핵심 정리::
+
 > 꼭 회수해야 하는 자원을 다룰 때는 try-with-resources를 사용하자. 코드는 더 짧고 분명해지고, 만들어지는 예외 정보도 훨씬 유용하다. 정확하고 쉽게 자원을 회수할 수 있다.
 
 

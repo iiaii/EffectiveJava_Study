@@ -134,7 +134,7 @@ Entry deepCopy() {
 
 Object 의 clone 메서드는 CloneNotSupportedException을 던진다고 선언했지만 재정의한 메서드는 그렇지 않다. public clone 메서드에서는 throws 절을 없애야 한다. (검사 예외를 던지지 않아야 그 메서드를 사용하기 편하기 때문)
 
-상속해서 쓰기 위한 클래스 설계방식 2가지중 어느 쪽에서든 상속용 클래스는 Cloneable을 구현해서는 안된다. (Object 방식을 모방해서 이미 제대로 작동하는 clone 메서드를 구현해 protected로 두고 CloneNotSupportedException도 던질수 있다고 선언할 수도 있다.(super.clone을 부른다면 저 예외는 나올 수가 없음)) 이 방식은 Object를 바로 상속할 때처럼 Cloneable 구현 여부를 하위 클래스에서 선택하도록 해준다. clone을 동작하지 않게 구현해놓고 하위 클래스에서 재정의하지 못하게 할 수도 있다. 
+상속해서 쓰기 위한 클래스 설계방식 2가지중 어느 쪽에서든 상속용 클래스는 Cloneable을 구현해서는 안된다. (Object 방식을 모방해서 이미 제대로 작동하는 clone 메서드를 구현해 protected로 두고 CloneNotSupportedException도 던질수 있다고 선언할 수도 있다.(super.clone을 부른다면 저 예외는 나올 수가 없음) 이 방식은 Object를 바로 상속할 때처럼 Cloneable 구현 여부를 하위 클래스에서 선택하도록 해준다. clone을 동작하지 않게 구현해놓고 하위 클래스에서 재정의하지 못하게 할 수도 있다. 
 ```java
 @Override
 protected final Object clone() throws CloneNotSupportedException {
@@ -160,6 +160,13 @@ public static Yum newInstance(Yum yum) { … };
 Cloneable/clone 보다 나은 면이 많다.
 생성자를 쓰지 않는 객체 생성을 하지 않고, 문서화된 규약에 기대지 않고, 정상적인 final 필드 용법과 충돌하지 않고, 불필요한 검사 예외를 던지지 않고 형변환도 하지 않는다. 또한 해당 클래스가 구현한 인터페이스 타입의 인스턴스를 인수로 받을 수 있다. 예컨대 관례상 모든 범용 컬렉션 구현체는 Collection이나 Map 타입을 받는 생성자를 제공한다. 인터페이스 기반 복사 생성자와 복사 팩토리의 더 정확한 이름은 ‘변환 생성자’와 ‘변환 팩토리’이다. (HashSet 객체 s를 TreeSet 타입으로 복제할 수있다. clone으로는 불가능한 이 기능을 변환 생성자로는 간단히 new TreeSet<>(s)로 처리한다)
 
-> ::핵심 정리:: 
+
+::핵심 정리:: 
+
 > Cloneable의 문제를 봤을때 새로운 인터페이스를 만들때는 절대 Cloneable을 확장해서는 안되며, 새로운 클래스도 이를 구현해서는 안된다. final 클래스라면 Cloneable을 구현해도 위험이 크지 않지만, 성능 최적화 관점에서 검토한 후 드물게 허용해야한다. 기본 원칙은 복제 기능은 생성자와 팩토리를 이용하는 것이 최고라는 것이다. 단 배열만은 clone 메서드 방식이 가장 깔끔한, 이 규칙의 합당한 예외이다.
+
+
+
+
+
 
