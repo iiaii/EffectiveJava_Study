@@ -144,7 +144,8 @@ private static <E> void swapHelper(List<E> list, int i, int j) {
 과 같은 형태로 쓰인다
 
 
-> ::핵심 정리:: 
+::핵심 정리:: 
+
 > 조금 복잡하더라도 와일드카드 타입을 적용하면 API가 유연해진다. 널리 쓰일 라이브러리를 작성한다면 반드시 와일드카드 타입을 적절히 사용해야 한다. PECS 공식을 기억하자. 생산자는 extends를 소비자는 super를 사용한다. Comparable, Comparator는 모두 소비자라는 사실도 기억하자.
 
 
