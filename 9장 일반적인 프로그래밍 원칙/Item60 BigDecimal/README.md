@@ -49,7 +49,9 @@ public static void main(String[] args) {
 ```
 
 
-> **::핵심 정리::** 
+**::핵심 정리::** 
+
 > 정확한 답이 필요한 계산에 float, double 사용을 피하고 성능저하나 불편함을 감수한다면 BigDecimal, 소수점을 직접 추적 가능하다면 int 나 long을 사용하는 것이 좋다. (18자리를 넘어가면 BigDecimal 사용)
+
 
 

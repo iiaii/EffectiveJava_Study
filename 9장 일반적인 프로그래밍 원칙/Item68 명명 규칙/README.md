@@ -51,7 +51,9 @@ is, has, get, set 의 메서드 이름이 있고, 객체의 타입을 바꿔서 
 기본 타입 값으로 반환하는 메서드의 이름은 보통 typeValue 형태로 짓는다. (intValue)
 정적 팩토리의 이름은 다양하지만 from, of, valueOf, instance, getInstance, newInstance, getType, newType(아이템1)을 주로 사용한다
 
-> **::핵심 정리::** 
+
+**::핵심 정리::** 
+
 > 표준 명명 규칙을 체화하여 자연스럽게 베어 나오도록 하자. 철자 규칙은 직관적이라 모호한 부분이 적지만 문법은 다양하고 느슨하다.
 
 

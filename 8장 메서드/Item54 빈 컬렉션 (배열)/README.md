@@ -74,6 +74,8 @@ public Cheese[] getCheeses() {
 return cheesesInStock.toArray(new Cheese[cheesesInStock.size()]);
 ```
 
-> **::핵심 정리::** 
+
+**::핵심 정리::** 
+
 > null이 아닌, 빈 배열이나 컬렉션을 반환하라. null을 반환하는 API는 사용하기 어렵고 오류 처리 코드도 늘어난다. 그렇다고 성능이 좋은 것도 아님
 
