@@ -1,10 +1,11 @@
 # #EffectiveJava/11장_동시성/80실행자
 
+[Java Thread Pool(스레드 풀)](https://limkydev.tistory.com/55)
 
 ## 80. 스레드보다는 실행자, 태스크, 스트림을 애용하라
 
 
-java.util.concurrent 패키지는 실행자 프레임워크(Executor Framework)라고 하는 인터페이스 기반의 유연한 태스크 실행 기능을 담고 있다. (초판의 코드보다 모든 면에서 뛰ㅣ어난 작업 큐를 다음 한줄로 생성 가능)
+java.util.concurrent 패키지는 실행자 프레임워크(Executor Framework)라고 하는 인터페이스 기반의 유연한 태스크 실행 기능을 담고 있다. (초판의 코드보다 모든 면에서 뛰어난 작업 큐를 다음 한줄로 생성 가능)
 
 ```java
 ExecutorService exec = Executors.newSingleThreadExecutor();

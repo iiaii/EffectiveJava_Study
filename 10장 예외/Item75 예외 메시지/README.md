@@ -45,3 +45,5 @@ public IndexOutOfBoundsException(int lowerBound, int upperBound, int index) {
 아이템70에서 제안한것 처럼 예외는 실패와 관련한 정보를 얻을 수 있는 접근자 메서드를 적절히 제공하는 것이 좋다 (앞의 예에서 lowerBound, upperBound, index 정도가 적당할 것이다) 포착한 실패 정보는 예외 상황을 복구하는데 유용할 수 있으므로 접근자 메서드는 비검사 예외보다 검사예외에서 빛을 발한다. 
 
 
+
+
