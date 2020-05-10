@@ -21,7 +21,7 @@
 
 **Serializable 구현 여부는 가볍게 결정할 사안이 아니다.** 단, 객체를 전송하거나 저장할 때 자바 직렬화를 이용하는 프레임워크용으로 만든 클래스라면 선택의 여지가 없다. Serializable을 반드시 구현해야 하는 다른 클래스의 컴포넌트로 쓰일 클래스도 마찬가지다. 하지만 Serializable 구현에 따르는 비용이 적지 않으니, 클래스를 설계할 때마다 그 이득과 비용을 잘 저울질해야 한다. 역사적으로 BigInteger와 Instant 같은 값 클래스와 컬렉션 클래스들은 Serializable을 구현하고, 스레드 풀처럼 동작하는 객체를 표현하는 클래스들은 대부분 Serializable을 구현하지 않았다.
 
-**상속용으로 설계된 클래스(아이템19)는 대부분 Serializable을 구현하면 안되며, 인터페이스도 대부분 Serializable을 확작해서는 안된다.** 이 규칙을 따르지 않으면, 그런 클래스를 확장하거나 그런 인터페이스를 구현하는 이에게 커다란 부담을 지우게 된다. (하지만 Serializable을 구현한 클래스만 지원하는 프레임워크를 사용하는 상황이람녀 방도가 없다)
+**상속용으로 설계된 클래스(아이템19)는 대부분 Serializable을 구현하면 안되며, 인터페이스도 대부분 Serializable을 확작해서는 안된다.** 이 규칙을 따르지 않으면, 그런 클래스를 확장하거나 그런 인터페이스를 구현하는 이에게 커다란 부담을 지우게 된다. (하지만 Serializable을 구현한 클래스만 지원하는 프레임워크를 사용하는 상황이라면 방도가 없다)
  상속용으로 설계된 클래스 중 Serializable을 구현한 예로는 Throwable과 Componet 가 있다. Throwable은 서버가 RMI를 통해 클라이언트로 예외를 보내기 위해 Serializable을 구현했다. Component는 GUI를 전송하고 저장하고 복원하기 위해 Serializable을 구현했지만, Swing과 AWT가 널리 쓰이던 시절에도 현업에서 이런 용도로는 거의 쓰이지 않았다.
 
 
@@ -30,7 +30,7 @@
 ```java
 // 상태가 있고 확장 가능하고 직렬화 가능한 클래스용 readObjectNoData메서드
 private void readObjectNoData() throws InvalidObjectException {
-	throw new InvalidObjectException(“스트림 데이터가 필요합닏다”);
+	throw new InvalidObjectException(“스트림 데이터가 필요합니다”);
 }
 ```
 
@@ -42,7 +42,8 @@ Serializable 을 구현하지 않기로 할 때는 한 가지만 주의하면 �
 -> 내부 클래스에 대한 기본 직렬화 형태는 분명하지 않다. 단, 정적 멤버 클래스는 Serializable을 구현해도 된다.
 
 
-> **::핵심 정리::** 
+**::핵심 정리::** 
+
 > Serializable 은 구현한다고 선언하기는 쉽지만, 신경써야 할것이 많다. 한 클래스의 여러 버전이 상호작용할 일이 없고 서버가 신뢰할 수 없는 데이터에 노출될 가능성이 없는 등, 보호된 환경에서만 쓰일 클래스가 아니라면 Serializable 구현은 아주 신중하게 이뤄져야 한다. 상속할 수 있는 클래스라면 주의사항이 더욱 많아진다.
 
 
